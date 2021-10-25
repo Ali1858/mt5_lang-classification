@@ -6,7 +6,7 @@
 * We are going to **use xnli.test.tsv dataset for cross-validation** and once we have selected our hyper-parameters we will **train our model on full xnli.test.tsv dataset and evaluated on xnli.dev.tsv.** We are not going to use xnli.dev.tsv dataset untill we have choosen all the hyper-parameter.
 * I have refered this [official](https://github.com/google-research/text-to-text-transfer-transformer/blob/main/notebooks/t5-trivia.ipynb) notebook from t5 for fine-tuning the model. 
 
-## We Started with experimenting with different hyper parameter.
+## Experimenting with different hyper parameter.
 
 1. First; We tried different **Batch size (32, 128, 256)** and concluded that batch size of 128 and 256 perform same as long as number of training steps are same
 2. Second; We tried different **Epoch (10, 8, 6, 3, 2)** and concluded that epoch depends on batch size and Learning rate. If Batch is small (eg: 128) epoch can also be small and for higher batch Epoch should be higher. If LR is higher we can use small epoch.
@@ -26,11 +26,11 @@
 ![prediction](https://user-images.githubusercontent.com/13449847/138614500-09efd1cb-d6c2-4802-bf29-86b3365720f3.png)
 
 
-## Post-Training Observation.
+## Observation.
 
-1. We have observed that model is getting confused between Hindi and Urdu Language. The wrong prediction are most on input sentence which are written using English alphabets, not Hindi or Urdu alphabets. 
-2. Model is also getting confused between Bulgarian and Russian.
-3. Some labels are wrong. Mostly for english labels. 
+1. We have observed that model misclassify Hindi and Urdu Language. The wrong prediction are mostly on input sentence which are written using English alphabets, not Hindi or Urdu alphabets. 
+2. Model also misclassify Bulgarian and Russian. The wrong predictions are possibily because both Russian and Bulgarian belong from same language family.
+3. Few sentences are incorrectly labeled as english. 
 4. Some input sentences are very small and because of that wrong prediction. Since training dataset size is decent we can eliminated such small sentences.
 
 ## How to Run this notebook. 
