@@ -4,7 +4,7 @@
 * We will be using the Cross-lingual Natural Language Inference (XNLI) dataset for fine-tuning. We are going to use sentence1 and sentence2 colomns as input and language as target.
 * XNLI dataset can be download [here](https://cims.nyu.edu/~sbowman/xnli/)
 * We are going to **use xnli.test.tsv dataset for cross-validation** and once we have selected our hyper-parameters we will **train our model on full xnli.test.tsv dataset and evaluated on xnli.dev.tsv.** We are not going to use xnli.dev.tsv dataset untill we have choosen all the hyper-parameter.
-* I have refered this [official](https://github.com/google-research/text-to-text-transfer-transformer/blob/main/notebooks/t5-trivia.ipynb) notebook from t5 for fine-tuning the model. 
+* Reference; I have refered this [official](https://github.com/google-research/text-to-text-transfer-transformer/blob/main/notebooks/t5-trivia.ipynb) notebook from t5 for fine-tuning the model. 
 
 ## Experimenting with different hyper parameter.
 
@@ -38,8 +38,9 @@
 * Its highly recommended to Run this notebook using Collab TPU Runtime env. I have already shared the Collab notebook [here](https://colab.research.google.com/drive/1cVwnFKDFOL5545b4u08Q1yS5l9-0GRsg?usp=sharing), Please Run it directly.
 * To Change the runtime please follow; **Runtime --> change runtime type --> TPU** If fine-tuning the model then GPU  is also fine. 
 * All the data and fine-tune checkpoints are already available in my GCS bucket**\***
-* Notebook can also be run on local machine by install **pip install -r requirements.txt**. However all the data, checkpoints and output should be saved on GCS bucket.
+* To get the prediction on unseen data using best model, just run all the cell as it is. You can also input your own sentences. 
+* Notebook can also be run on local machine by install **pip install -r requirements.txt**. However all the data, checkpoints and output should be saved on GCS bucket only.
 
 ### P.S:
 * GCS bucket is publicly available for limited time and after that those links will expire. Please update those links with your own GCS link and also upload training data.
-* Know Issue: For some reason t5 library is not able to update the checkpoint's *.gin confile file and because of that prediction function throws error. I have manually updated the *.gin config file for best model for getting the predictions. 
+* Know Issue: For some reason t5 library is not able to update the checkpoint's \*.gin confile file and because of that prediction function throws error. I have manually updated the \*.gin config file for best model for getting the predictions. 
